@@ -1,0 +1,20 @@
+<div class="col-12 mt-5" *ngIf="username == ''">
+  <div class="row justify-content-around">
+    Pseudo
+    <input class="form-control col-7" type="text" [(ngModel)]="tmpuser">
+    <button class="btn btn-primary col-3" (click)="username = tmpuser"> Ok </button>
+  </div>
+</div>
+
+
+<div class="p-5" *ngIf="username != ''">
+  <div class="row">
+    <app-message-box  *ngFor="let mes of messages" [message]="mes" [pseudo]="username" class="col-12"></app-message-box>
+  </div>
+  <div class="col-12" style="position:absolute;bottom : 0">
+    <div class="row justify-content-around">
+      <input class="form-control col-7" placeholder='Ecrivez ...' type="text" [(ngModel)]="message">
+      <button class="btn btn-success col-3" (click)="SendMessage()"> Envoyer </button>
+    </div>
+  </div>
+</div>
